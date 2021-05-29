@@ -15,5 +15,6 @@ public class BrickSpawner : MonoBehaviour
                 Instantiate(BrickGameObject, positionVector3, Quaternion.identity);
             }
         }
+        Destroy(gameObject);
     }
 }

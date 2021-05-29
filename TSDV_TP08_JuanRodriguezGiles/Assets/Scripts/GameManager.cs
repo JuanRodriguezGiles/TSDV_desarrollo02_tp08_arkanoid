@@ -47,7 +47,15 @@ public class GameManager : MonoBehaviour
     {
         if (hp == 0)
         {
-            SceneManager.LoadScene("GameOver");
+            LoadGameOver();
         }
+    }
+    public void LoadGameplay()
+    {
+        SceneManager.LoadScene("GamePlay");
+    }
+    void LoadGameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }
