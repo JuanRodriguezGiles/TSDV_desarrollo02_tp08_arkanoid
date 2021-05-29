@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class GameManager : MonoBehaviour
     public int hp = 3;
     public int score;
     public int highScore;
+    public static event Action onScoreChange;
+    public void OnScoreChange()
+    {
+        onScoreChange?.Invoke();
+    }
     void OnEnable()
     {
         Ball.onBallTouchBottom += RemoveHp;
@@ -42,6 +48,7 @@ public class GameManager : MonoBehaviour
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore);
         }
+        OnScoreChange();
     }
     void CheckGameOver()
     {
