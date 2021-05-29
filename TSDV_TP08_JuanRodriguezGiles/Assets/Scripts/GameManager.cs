@@ -19,9 +19,9 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
-    [SerializeField] int hp = 3;
-    [SerializeField] int score;
-    [SerializeField] int highScore;
+    public int hp = 3;
+    public int score;
+    public int highScore;
     void OnEnable()
     {
         Ball.onBallTouchBottom += RemoveHp;
